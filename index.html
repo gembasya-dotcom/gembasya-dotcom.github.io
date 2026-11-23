@@ -482,7 +482,7 @@
           <p class="detail">Encuentra esta misma invitación y sigue cada edición en nuestras redes:</p>
           <div class="social">
             <a class="btn btn-red" href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer">Facebook — Agencia moszar</a>
-            <a class="btn btn-ghost" href="https://www.instagram.com/manuelmoscosozarate" target="_blank" rel="noopener noreferrer">Instagram — @manuelmoscosozarate</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/aimoszar" target="_blank" rel="noopener noreferrer">Instagram — @aimoszar</a>
             <a class="btn btn-ghost" href="https://x.com/AImoszar" target="_blank" rel="noopener noreferrer">X — @AImoszar</a>
             <a class="btn btn-ghost" href="https://www.youtube.com/@AgenciaMoszar" target="_blank" rel="noopener noreferrer">YouTube — @AgenciaMoszar</a>
           </div>
@@ -630,7 +630,7 @@
         <section class="blk" id="historico" aria-label="Histórico de programas">
           <div class="sec-head">
             <h2>Histórico de programas</h2>
-            <p>Consulta por fecha y hora · Hora de Tepic</p>
+            <p>Consulta por fecha, hora, país y estado · Hora de Tepic</p>
           </div>
 
           <div class="notify-box" aria-label="Activa las notificaciones de programa nuevo">
@@ -645,7 +645,7 @@
             </div>
             <ol class="notify-steps">
               <li><b>Facebook</b> Entra a la página Agencia moszar → Síguenos → toca la campana / ⋯ → Notificaciones → activa «Publicaciones» y «Videos».</li>
-              <li><b>Instagram</b> En @manuelmoscosozarate → Seguir → campana (arriba a la derecha) → activa «Publicaciones», «Historias» y «Reels».</li>
+              <li><b>Instagram</b> En @aimoszar → Seguir → campana (arriba a la derecha) → activa «Publicaciones», «Historias» y «Reels».</li>
               <li><b>X — @AImoszar</b> Síguenos → campana en el perfil → elige «Todos los posts».</li>
               <li><b>YouTube — @AgenciaMoszar</b> Suscríbete → campana → «Todas» para que te avise de cada video nuevo.</li>
               <li><b>Spotify y apps de podcast</b> Busca «Noticias con Nena», toca Seguir y activa la campana; o pega el enlace RSS en tu app y prende sus notificaciones.</li>
@@ -656,6 +656,51 @@
             <div>
               <label for="hist-date">Fecha</label>
               <input type="date" id="hist-date" name="fecha" min="2026-11-20" value="" />
+            </div>
+            <div>
+              <label for="hist-pais">País</label>
+              <select id="hist-pais" name="pais">
+                <option value="">Todos los países</option>
+                <option value="mx">México</option>
+              </select>
+            </div>
+            <div>
+              <label for="hist-estado">Estado</label>
+              <select id="hist-estado" name="estado">
+                <option value="">Todos los estados</option>
+                <option value="baja-california">Baja California</option>
+                <option value="baja-california-sur">Baja California Sur</option>
+                <option value="sonora">Sonora</option>
+                <option value="chihuahua">Chihuahua</option>
+                <option value="coahuila">Coahuila</option>
+                <option value="nuevo-leon">Nuevo León</option>
+                <option value="tamaulipas">Tamaulipas</option>
+                <option value="sinaloa">Sinaloa</option>
+                <option value="durango">Durango</option>
+                <option value="zacatecas">Zacatecas</option>
+                <option value="san-luis-potosi">San Luis Potosí</option>
+                <option value="nayarit">Nayarit</option>
+                <option value="jalisco">Jalisco</option>
+                <option value="colima">Colima</option>
+                <option value="michoacan">Michoacán</option>
+                <option value="guanajuato">Guanajuato</option>
+                <option value="aguascalientes">Aguascalientes</option>
+                <option value="queretaro">Querétaro</option>
+                <option value="hidalgo">Hidalgo</option>
+                <option value="estado-de-mexico">Estado de México</option>
+                <option value="ciudad-de-mexico">Ciudad de México</option>
+                <option value="morelos">Morelos</option>
+                <option value="puebla">Puebla</option>
+                <option value="tlaxcala">Tlaxcala</option>
+                <option value="veracruz">Veracruz</option>
+                <option value="guerrero">Guerrero</option>
+                <option value="oaxaca">Oaxaca</option>
+                <option value="chiapas">Chiapas</option>
+                <option value="tabasco">Tabasco</option>
+                <option value="campeche">Campeche</option>
+                <option value="yucatan">Yucatán</option>
+                <option value="quintana-roo">Quintana Roo</option>
+              </select>
             </div>
             <div>
               <label for="hist-edition">Hora / Edición</label>
@@ -676,7 +721,7 @@
           </form>
 
           <div class="hist-meta">
-            <p id="hist-count" aria-live="polite"><b>4 programas</b> en el histórico</p>
+            <p id="hist-count" aria-live="polite"><b>5 programas</b> en el histórico</p>
             <div class="hist-quick" role="group" aria-label="Accesos rápidos por fecha">
               <button type="button" class="chip-btn" data-quick="all" aria-pressed="true">Todas las fechas</button>
               <button type="button" class="chip-btn" data-quick="2026-11-20" aria-pressed="false">Vie 20 nov 2026</button>
@@ -686,7 +731,30 @@
 
           <div class="program-list" id="program-list">
 
-            <article class="program-card" data-date="2026-11-20" data-edition="noche" data-time="23:11" data-search="cierre nocturno con nena noche escuinapa san blas rusia ucrania misiles drones sheinbaum desfile revolucion apec shenzhen nueva familia michoacana guasave cop31 antalya ciclon akvan india injusticias estela romero bringas puebla aguinaldo senadores archivo radio lima 1987 maranon jaen smooth santana independent women destiny child cafe diligencias">
+            <article class="program-card" data-date="2026-11-21" data-edition="noche" data-time="23:11" data-pais="mx" data-estado="todos" data-search="cierre nocturno con nena noche guasave operativo militares muertos detenidos otan polonia cop31 acuerdo boca juniors campeon copa sudamericana liga mx liguilla">
+              <div class="prog-date">
+                <span class="dow">Sábado</span>
+                <span class="day">21</span>
+                <span class="my">nov · 2026</span>
+                <span class="hour">11:11 pm</span>
+              </div>
+              <div class="prog-body">
+                <p class="prog-sub">Edición de la noche · Flash informativo · 18 min 11 s</p>
+                <h3>Cierre nocturno con Nena</h3>
+                <p class="prog-desc">El cierre del día: el saldo oficial del operativo de Guasave —4 militares muertos y 8 detenidos—; la OTAN promete defender cada pulgada de Polonia; la COP31 sigue sin acuerdo; Boca Juniors, campeón de la Copa Sudamericana, y la Liga MX define su liguilla.</p>
+                <ul class="prog-topics">
+                  <li>Guasave · Operativo</li><li>OTAN · Polonia</li><li>COP31</li><li>Boca Juniors · Sudamericana</li><li>Liga MX · Liguilla</li>
+                </ul>
+                <div class="prog-foot">
+                  <span class="status-tag scheduled"><i></i> Pendiente de publicación</span>
+                  <div class="prog-links">
+                    <a class="primary" href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer">Facebook — Agencia moszar</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="program-card" data-date="2026-11-20" data-edition="noche" data-time="23:11" data-pais="mx" data-estado="todos" data-search="cierre nocturno con nena noche escuinapa san blas rusia ucrania misiles drones sheinbaum desfile revolucion apec shenzhen nueva familia michoacana guasave cop31 antalya ciclon akvan india injusticias estela romero bringas puebla aguinaldo senadores archivo radio lima 1987 maranon jaen smooth santana independent women destiny child cafe diligencias">
               <div class="prog-date">
                 <span class="dow">Viernes</span>
                 <span class="day">20</span>
@@ -696,7 +764,7 @@
               <div class="prog-body">
                 <p class="prog-sub">Edición de la noche · Flash informativo · 16 min 54 s</p>
                 <h3>Cierre nocturno con Nena</h3>
-                <p class="prog-desc">El cierre del día: el ataque a una familia de San Blas en Escuinapa, Sinaloa, donde murieron un niño de 6 años, una joven de 19 años con 8 meses de embarazo y su bebé; Rusia lanzó un ataque masivo contra Ucrania con más de 110 misiles y más de 400 drones; Sheinbaum encabezó el desfile del 116 aniversario de la Revolución tras regresar de la cumbre APEC en Shenzhen; Estados Unidos acusó a 21 presuntos integrantes de La Nueva Familia Michoacana; enfrentamiento en Guasave, Sinaloa; la cumbre del clima COP31 en Antalya prolongó sus negociaciones sin acuerdo final, y el ciclón Akvan tocó tierra en la India. Injusticias: el caso de Estela Romero Bringas en Puebla y el aguinaldo de los senadores. Archivo de radio: Lima 1987, Radio Marañón de Jaén. Apertura con «Smooth» de Santana y cierre con «Independent Women Part I» de Destiny's Child, ambas completas. Patrocinador: Café Diligencias.</p>
+                <p class="prog-desc">El cierre del día: el ataque a una familia de San Blas en Escuinapa, Sinaloa, donde murieron un niño, una joven y su bebé; Rusia lanzó un ataque masivo contra Ucrania con más de 110 misiles y más de 400 drones; Sheinbaum encabezó el desfile del 116 aniversario de la Revolución tras regresar de la cumbre APEC en Shenzhen; Estados Unidos acusó a 21 presuntos integrantes de La Nueva Familia Michoacana; enfrentamiento en Guasave, Sinaloa; la cumbre del clima COP31 en Antalya prolongó sus negociaciones sin acuerdo final, y el ciclón Akvan tocó tierra en la India. Injusticias: el caso de Estela Romero Bringas en Puebla y el aguinaldo de los senadores. Archivo de radio: Lima 1987, Radio Marañón de Jaén. Apertura con «Smooth» de Santana y cierre con «Independent Women Part I» de Destiny's Child, ambas completas. Patrocinador: Café Diligencias.</p>
                 <ul class="prog-topics">
                   <li>Escuinapa / San Blas</li><li>Rusia · Ucrania</li><li>Sheinbaum · Desfile</li><li>Guasave</li><li>COP31 · Antalya</li><li>Ciclón Akvan</li><li>Injusticias</li><li>Archivo · Lima 1987</li><li>Café Diligencias</li>
                 </ul>
@@ -712,7 +780,7 @@
               </div>
             </article>
 
-            <article class="program-card" data-date="2026-11-20" data-edition="manana" data-time="06:11" data-search="como amanecemos con nena mañana relanzamiento acaponeta cafe diligencias monitoreo corrupcion tecnologia campo clima radio archivo morelia top 10 tepic nayarit mexico mundo">
+            <article class="program-card" data-date="2026-11-20" data-edition="manana" data-time="06:11" data-pais="mx" data-estado="nayarit" data-search="como amanecemos con nena mañana relanzamiento acaponeta cafe diligencias monitoreo corrupcion tecnologia campo clima radio archivo morelia top 10 tepic nayarit mexico mundo">
               <div class="prog-date">
                 <span class="dow">Viernes</span>
                 <span class="day">20</span>
@@ -737,7 +805,7 @@
               </div>
             </article>
 
-            <article class="program-card" data-date="2026-11-20" data-edition="tarde" data-time="14:11" data-search="como vamos con nena tarde escuinapa san blas desfile tepic detenciones plan de barrancas boulevard tepic jalisco operativo decembrino pensiones gobierno federal acuerdo comercial estados unidos clima frente frio archivo morelia hora del cacaro">
+            <article class="program-card" data-date="2026-11-20" data-edition="tarde" data-time="14:11" data-pais="mx" data-estado="nayarit" data-search="como vamos con nena tarde escuinapa san blas desfile tepic detenciones plan de barrancas boulevard tepic jalisco operativo decembrino pensiones gobierno federal acuerdo comercial estados unidos clima frente frio archivo morelia hora del cacaro">
               <div class="prog-date">
                 <span class="dow">Viernes</span>
                 <span class="day">20</span>
@@ -763,7 +831,7 @@
               </div>
             </article>
 
-            <article class="program-card" data-date="2026-11-21" data-edition="manana" data-time="06:11" data-search="como amanecemos con nena sabado mañana programa amplio monitoreo corrupcion tecnologia campo clima radio archivo">
+            <article class="program-card" data-date="2026-11-21" data-edition="manana" data-time="06:11" data-pais="mx" data-estado="nayarit" data-search="como amanecemos con nena sabado mañana programa amplio monitoreo corrupcion tecnologia campo clima radio archivo">
               <div class="prog-date">
                 <span class="dow">Sábado</span>
                 <span class="day">21</span>
@@ -789,11 +857,11 @@
           </div>
 
           <div class="hist-empty" id="hist-empty" role="status">
-            <b>Sin programas con ese criterio</b>
-            Prueba con otra fecha, elige «Todas las horas» o borra la búsqueda. El histórico arranca el viernes 20 de noviembre de 2026, día del relanzamiento.
+            <b>Sin programas con ese criterio</b><span id="hist-empty-crit"></span>
+            Prueba con otra fecha, hora, país o estado, o borra la búsqueda. El histórico arranca el viernes 20 de noviembre de 2026, día del relanzamiento.
           </div>
 
-          <p class="hist-note">Cómo usarlo: elige una <b>fecha</b> en el calendario, filtra por <b>hora de edición</b> (6:11 am, 2:11 pm o 11:11 pm) o busca un tema. Cada programa publicado trae su enlace directo para escucharlo o verlo en Facebook, Instagram, LinkedIn, X o tu app de podcasts por RSS. Las ediciones programadas se marcan como tal y su enlace aparece al publicarse.</p>
+          <p class="hist-note">Cómo usarlo: elige una <b>fecha</b> en el calendario, filtra por <b>hora de edición</b> (6:11 am, 2:11 pm o 11:11 pm), por <b>país</b> y <b>estado</b>, o busca un tema. Cada programa publicado trae su enlace directo para escucharlo o verlo en Facebook, Instagram, LinkedIn, X o tu app de podcasts por RSS. Las ediciones programadas se marcan como tal y su enlace aparece al publicarse.</p>
         </section>
 
         <section class="blk" id="segmentos">
@@ -884,6 +952,8 @@
               <p>Para anunciarte en la agencia o enviar tus comentarios, escríbenos por WhatsApp. Te atendemos directamente. Este número está habilitado solo para mensajes de WhatsApp.</p>
               <p class="big">+52 311 497 4407</p>
               <a class="btn btn-wa" href="https://wa.me/523114974407" target="_blank" rel="noopener noreferrer">Enviar WhatsApp</a>
+              <p class="big">Respaldo: +52 813 209 1419</p>
+              <a class="btn btn-wa" href="https://wa.me/528132091419" target="_blank" rel="noopener noreferrer">Enviar WhatsApp al respaldo</a>
             </article>
             <article class="contact-card">
               <h3>Correo electrónico</h3>
@@ -905,10 +975,11 @@
           <nav class="foot-links" aria-label="Enlaces">
             <span class="foot-head">Redes sociales y contacto</span>
             <a href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer">Facebook — Agencia moszar</a>
-            <a href="https://www.instagram.com/manuelmoscosozarate" target="_blank" rel="noopener noreferrer">Instagram — @manuelmoscosozarate</a>
+            <a href="https://www.instagram.com/aimoszar" target="_blank" rel="noopener noreferrer">Instagram — @aimoszar</a>
             <a href="https://x.com/AImoszar" target="_blank" rel="noopener noreferrer">X — @AImoszar</a>
             <a href="https://www.youtube.com/@AgenciaMoszar" target="_blank" rel="noopener noreferrer">YouTube — @AgenciaMoszar</a>
             <a href="https://wa.me/523114974407" target="_blank" rel="noopener noreferrer">WhatsApp — +52 311 497 4407</a>
+            <a href="https://wa.me/528132091419" target="_blank" rel="noopener noreferrer">WhatsApp respaldo — +52 813 209 1419</a>
             <a href="mailto:aimoszar@gmail.com">Correo — aimoszar@gmail.com</a>
             <a href="https://muse.ai/podcasts/feed/995663493641320/175bbc2e-55a3-47dd-9409-cc173b14f4f9" target="_blank" rel="noopener noreferrer">Podcast — canal RSS</a>
             <a href="#codigo">🎁 Gana tokens en Muse — código J4PNYW</a>
@@ -967,7 +1038,7 @@
                   <span id="copy-feedback-app" style="display:block; font-size:.84rem; font-weight:700; color:#166030; margin-top:6px;" aria-live="polite"></span>
                   <a href="https://wa.me/?text=Gana%20tokens%20en%20Muse%20con%20el%20c%C3%B3digo%20J4PNYW%20de%20Agencia%20moszar.%20Canj%C3%A9alo%20en%20Settings%20%3E%20Redeem%20token%20en%20tus%20primeras%2048%20horas." target="_blank" rel="noopener noreferrer" style="display:block; text-align:center; margin-top:8px; font-weight:700;">Compartir por WhatsApp →</a>
                 </div>
-                <div class="app-note"><b>Anunciantes y comentarios:</b> WhatsApp +52 311 497 4407 (solo mensajes) · aimoszar@gmail.com</div>
+                <div class="app-note"><b>Anunciantes y comentarios:</b> WhatsApp +52 311 497 4407 (solo mensajes) · Respaldo: +52 813 209 1419 · aimoszar@gmail.com</div>
               </div>
 
               <div class="app-panel" id="panel-ediciones">
@@ -1004,11 +1075,12 @@
                 <div class="app-note"><b>Conducen Nena y Alex.</b> Suscríbete al podcast o sigue cada publicación en Facebook.</div>
                 <a class="app-link" href="https://muse.ai/podcasts/feed/995663493641320/175bbc2e-55a3-47dd-9409-cc173b14f4f9" target="_blank" rel="noopener noreferrer"><span>Canal RSS del podcast</span><span aria-hidden="true">→</span></a>
                 <a class="app-link" href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer"><span>Página en Facebook</span><span aria-hidden="true">→</span></a>
-                <a class="app-link" href="https://www.instagram.com/manuelmoscosozarate" target="_blank" rel="noopener noreferrer"><span>Instagram — @manuelmoscosozarate</span><span aria-hidden="true">→</span></a>
+                <a class="app-link" href="https://www.instagram.com/aimoszar" target="_blank" rel="noopener noreferrer"><span>Instagram — @aimoszar</span><span aria-hidden="true">→</span></a>
                 <a class="app-link" href="https://x.com/AImoszar" target="_blank" rel="noopener noreferrer"><span>X — @AImoszar</span><span aria-hidden="true">→</span></a>
                 <a class="app-link" href="https://www.youtube.com/@AgenciaMoszar" target="_blank" rel="noopener noreferrer"><span>YouTube — @AgenciaMoszar</span><span aria-hidden="true">→</span></a>
                 <div class="app-note"><b>Anunciantes y comentarios.</b> Escríbenos por cualquiera de estas dos vías:</div>
                 <a class="app-link" href="https://wa.me/523114974407" target="_blank" rel="noopener noreferrer"><span>WhatsApp — +52 311 497 4407</span><span aria-hidden="true">→</span></a>
+                <a class="app-link" href="https://wa.me/528132091419" target="_blank" rel="noopener noreferrer"><span>WhatsApp respaldo — +52 813 209 1419</span><span aria-hidden="true">→</span></a>
                 <a class="app-link" href="mailto:aimoszar@gmail.com"><span>Correo — aimoszar@gmail.com</span><span aria-hidden="true">→</span></a>
                 <div class="app-note">Contenido elaborado con asistencia de inteligencia artificial (Muse) y revisado por el equipo editorial de Agencia moszar.</div>
               </div>
@@ -1055,10 +1127,11 @@
           <nav class="foot-links" aria-label="Enlaces">
             <span class="foot-head">Redes sociales y contacto</span>
             <a href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer">Facebook — Agencia moszar</a>
-            <a href="https://www.instagram.com/manuelmoscosozarate" target="_blank" rel="noopener noreferrer">Instagram — @manuelmoscosozarate</a>
+            <a href="https://www.instagram.com/aimoszar" target="_blank" rel="noopener noreferrer">Instagram — @aimoszar</a>
             <a href="https://x.com/AImoszar" target="_blank" rel="noopener noreferrer">X — @AImoszar</a>
             <a href="https://www.youtube.com/@AgenciaMoszar" target="_blank" rel="noopener noreferrer">YouTube — @AgenciaMoszar</a>
             <a href="https://wa.me/523114974407" target="_blank" rel="noopener noreferrer">WhatsApp — +52 311 497 4407</a>
+            <a href="https://wa.me/528132091419" target="_blank" rel="noopener noreferrer">WhatsApp respaldo — +52 813 209 1419</a>
             <a href="mailto:aimoszar@gmail.com">Correo — aimoszar@gmail.com</a>
             <a href="https://muse.ai/podcasts/feed/995663493641320/175bbc2e-55a3-47dd-9409-cc173b14f4f9" target="_blank" rel="noopener noreferrer">Podcast — canal RSS</a>
           </nav>
@@ -1155,18 +1228,24 @@
           el.addEventListener('click', function(){ showPanel('panel-' + el.getAttribute('data-goto')); });
         });
 
-        /* Histórico: filtro por fecha, hora/edición y texto */
+        /* Histórico: filtro por fecha, hora/edición, país, estado y texto */
         var histDate = document.getElementById('hist-date'),
+            histPais = document.getElementById('hist-pais'),
+            histEstado = document.getElementById('hist-estado'),
             histEd = document.getElementById('hist-edition'),
             histQ = document.getElementById('hist-q'),
             histClear = document.getElementById('hist-clear'),
             histCount = document.getElementById('hist-count'),
             histEmpty = document.getElementById('hist-empty'),
+            histEmptyCrit = document.getElementById('hist-empty-crit'),
             cards = Array.prototype.slice.call(document.querySelectorAll('.program-card')),
             quickBtns = Array.prototype.slice.call(document.querySelectorAll('[data-quick]'));
         function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+        function selText(el){ return (el && el.options && el.selectedIndex >= 0) ? el.options[el.selectedIndex].text : ''; }
         function applyHist(){
           var d = histDate ? histDate.value : '',
+              p = histPais ? histPais.value : '',
+              s = histEstado ? histEstado.value : '',
               e = histEd ? histEd.value : '',
               q = norm(histQ ? histQ.value.trim() : ''),
               visible = 0;
@@ -1174,6 +1253,8 @@
             var ok = true;
             if (d && c.getAttribute('data-date') !== d) ok = false;
             if (e && c.getAttribute('data-edition') !== e) ok = false;
+            if (p && c.getAttribute('data-pais') !== p) ok = false;
+            if (s && c.getAttribute('data-estado') !== s && c.getAttribute('data-estado') !== 'todos') ok = false;
             if (q){
               var hay = norm(c.textContent + ' ' + (c.getAttribute('data-search')||''));
               q.split(/\s+/).forEach(function(w){ if (hay.indexOf(w) === -1) ok = false; });
@@ -1181,20 +1262,29 @@
             c.classList.toggle('is-hidden', !ok);
             if (ok) visible++;
           });
-          if (histCount) histCount.innerHTML = '<b>' + visible + (visible===1 ? ' programa' : ' programas') + '</b> en el histórico' + (d || e || q ? ' con ese criterio' : '');
+          var crit = [];
+          if (d) crit.push('fecha ' + d);
+          if (p) crit.push('país ' + selText(histPais));
+          if (s) crit.push('estado ' + selText(histEstado));
+          if (e) crit.push('edición ' + selText(histEd));
+          if (q) crit.push('búsqueda «' + (histQ ? histQ.value.trim() : '') + '»');
+          if (histCount) histCount.innerHTML = '<b>' + visible + (visible===1 ? ' programa' : ' programas') + '</b> en el histórico' + (crit.length ? ' con ese criterio (' + crit.join(' · ') + ')' : '');
           if (histEmpty) histEmpty.classList.toggle('on', visible===0);
+          if (histEmptyCrit) histEmptyCrit.textContent = (visible===0 && crit.length) ? ' (' + crit.join(' · ') + ').' : '';
           quickBtns.forEach(function(b){
             var v = b.getAttribute('data-quick');
             b.setAttribute('aria-pressed', String((v==='all' && !d) || v===d));
           });
         }
         if (histDate) histDate.addEventListener('change', applyHist);
+        if (histPais) histPais.addEventListener('change', applyHist);
+        if (histEstado) histEstado.addEventListener('change', applyHist);
         if (histEd) histEd.addEventListener('change', applyHist);
         if (histQ) histQ.addEventListener('input', applyHist);
         var histForm = document.getElementById('hist-filters');
         if (histForm) histForm.addEventListener('submit', function(ev){ ev.preventDefault(); applyHist(); });
         if (histClear) histClear.addEventListener('click', function(){
-          if (histDate) histDate.value=''; if (histEd) histEd.value=''; if (histQ) histQ.value='';
+          if (histDate) histDate.value=''; if (histPais) histPais.value=''; if (histEstado) histEstado.value=''; if (histEd) histEd.value=''; if (histQ) histQ.value='';
           applyHist();
         });
         quickBtns.forEach(function(b){
