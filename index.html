@@ -247,6 +247,23 @@
       .notify-steps{ margin:0; padding:0; list-style:none; display:grid; gap:9px; }
       .notify-steps li{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:8px; padding:10px 12px; font-size:.9rem; color:#e9e4d4; }
       .notify-steps li b{ color:#fff; display:block; font-size:.92rem; }
+
+      /* ---------- Recibe actualizaciones ---------- */
+      .suscribe-box{
+        background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow);
+        padding:20px 22px;
+      }
+      .suscribe-box p{ margin:0 0 14px; color:var(--ink-soft); font-size:.95rem; }
+      .suscribe-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+      .suscribe-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-bottom:16px; }
+      @media (max-width: 760px){ .suscribe-grid{ grid-template-columns:1fr; } }
+      .suscribe-group{ display:grid; gap:8px; align-content:start; }
+      .suscribe-group h3{ margin:0 0 10px; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); }
+      .suscribe-item{ display:flex; align-items:center; gap:9px; font-size:.95rem; cursor:pointer; color:var(--ink); }
+      .suscribe-item input{ width:18px; height:18px; accent-color:var(--red); flex:none; }
+      .suscribe-boletines{ font-weight:700; margin-bottom:6px; }
+      .suscribe-msg{ min-height:1.2em; color:var(--red); font-weight:700; }
+      .suscribe-note{ font-size:.85rem; }
       .hist-filters{
         background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow);
         padding:18px; display:grid; grid-template-columns:1fr 1fr 1.2fr auto; gap:12px; align-items:end; margin-bottom:8px;
@@ -522,6 +539,67 @@
           </div>
         </section>
 
+        <section class="blk" id="recibe-actualizaciones" aria-label="Recibe las actualizaciones por WhatsApp">
+          <div class="sec-head">
+            <h2>Recibe Noticias con Nena de tu estado</h2>
+            <p>Elige tus estados y toca el botón: se abre WhatsApp con un mensaje listo para enviar a Agencia moszar (+52 311 497 4407) y te agregamos a la lista para recibir el programa de esos estados y los boletines urgentes.</p>
+          </div>
+          <div class="suscribe-box">
+            <div class="suscribe-actions">
+              <button type="button" class="btn btn-ghost" id="suscribe-toggle-all">Todos los estados</button>
+            </div>
+            <div class="suscribe-grid">
+              <div class="suscribe-group">
+                <h3>Norte</h3>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="baja-california"> Baja California</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="baja-california-sur"> Baja California Sur</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="sonora"> Sonora</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="chihuahua"> Chihuahua</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="coahuila"> Coahuila</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="nuevo-leon"> Nuevo León</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="tamaulipas"> Tamaulipas</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="sinaloa"> Sinaloa</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="durango"> Durango</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="zacatecas"> Zacatecas</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="san-luis-potosi"> San Luis Potosí</label>
+              </div>
+              <div class="suscribe-group">
+                <h3>Centro</h3>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="aguascalientes"> Aguascalientes</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="nayarit"> Nayarit</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="jalisco"> Jalisco</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="colima"> Colima</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="michoacan"> Michoacán</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="guanajuato"> Guanajuato</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="queretaro"> Querétaro</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="hidalgo"> Hidalgo</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="estado-de-mexico"> Estado de México</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="ciudad-de-mexico"> Ciudad de México</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="morelos"> Morelos</label>
+              </div>
+              <div class="suscribe-group">
+                <h3>Sur</h3>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="puebla"> Puebla</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="tlaxcala"> Tlaxcala</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="veracruz"> Veracruz</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="guerrero"> Guerrero</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="oaxaca"> Oaxaca</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="chiapas"> Chiapas</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="tabasco"> Tabasco</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="campeche"> Campeche</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="yucatan"> Yucatán</label>
+                <label class="suscribe-item"><input type="checkbox" name="estado" value="quintana-roo"> Quintana Roo</label>
+              </div>
+            </div>
+            <label class="suscribe-item suscribe-boletines"><input type="checkbox" id="suscribe-boletines" checked> Boletines urgentes</label>
+            <p class="suscribe-msg" id="suscribe-msg" role="status"></p>
+            <div class="cta-row">
+              <button type="button" class="btn btn-wa" id="suscribe-wa">Recibir por WhatsApp</button>
+            </div>
+            <p class="suscribe-note">Sin costo. Puedes darte de baja cuando quieras escribiéndonos por WhatsApp.</p>
+          </div>
+        </section>
+
         <section class="invite" id="invitacion" aria-label="Invitación al relanzamiento">
           <p class="over">Invitación</p>
           <h2>Estás invitado al relanzamiento de Noticias con Nena</h2>
@@ -704,6 +782,7 @@
               <div class="cta-row" style="margin-top:12px;">
                 <a class="btn btn-red" href="https://muse.ai/podcasts/feed/995663493641320/175bbc2e-55a3-47dd-9409-cc173b14f4f9" target="_blank" rel="noopener noreferrer">Suscribirme por RSS</a>
                 <a class="btn btn-ghost" style="color:#fff; border-color:rgba(255,255,255,.45);" href="https://www.facebook.com/profile.php?id=61596330579872" target="_blank" rel="noopener noreferrer">Ir a Facebook</a>
+                <a class="btn btn-wa" href="#recibe-actualizaciones">Recibir por WhatsApp</a>
               </div>
             </div>
             <ol class="notify-steps">
@@ -6794,6 +6873,41 @@
         var btnCopyCodeApp = document.getElementById('btn-copy-code-app');
         if (btnCopyCodeApp) btnCopyCodeApp.addEventListener('click', function(){
           copyText('J4PNYW', document.getElementById('copy-feedback-app'), '✓ Código copiado: J4PNYW');
+        });
+        var suscribeBtn = document.getElementById('suscribe-wa');
+        var suscribeToggle = document.getElementById('suscribe-toggle-all');
+        var suscribeMsg = document.getElementById('suscribe-msg');
+        var suscribeBol = document.getElementById('suscribe-boletines');
+        function suscribeStates(){
+          var list = [];
+          var boxes = document.querySelectorAll('#recibe-actualizaciones input[name="estado"]:checked');
+          for (var i = 0; i < boxes.length; i++){
+            var label = boxes[i].parentNode.textContent || '';
+            list.push(label.replace(/^\s+|\s+$/g, ''));
+          }
+          return list;
+        }
+        if (suscribeToggle) suscribeToggle.addEventListener('click', function(){
+          var boxes = document.querySelectorAll('#recibe-actualizaciones input[name="estado"]');
+          var allChecked = true;
+          for (var i = 0; i < boxes.length; i++){ if (!boxes[i].checked){ allChecked = false; break; } }
+          for (var j = 0; j < boxes.length; j++){ boxes[j].checked = !allChecked; }
+          if (suscribeMsg) suscribeMsg.textContent = '';
+        });
+        if (suscribeBtn) suscribeBtn.addEventListener('click', function(){
+          var estados = suscribeStates();
+          var boletines = suscribeBol && suscribeBol.checked;
+          var msg = '';
+          if (estados.length){
+            msg = 'Hola Agencia moszar, quiero recibir las actualizaciones de Noticias con Nena de: ' + estados.join(', ');
+            msg += boletines ? ' y los boletines urgentes.' : '.';
+          } else if (boletines){
+            msg = 'Hola Agencia moszar, quiero recibir los boletines urgentes de Noticias con Nena.';
+          } else {
+            if (suscribeMsg) suscribeMsg.textContent = 'Elige al menos un estado o los boletines urgentes.';
+            return;
+          }
+          window.open('https://wa.me/523114974407?text=' + encodeURIComponent(msg), '_blank');
         });
       })();
     </script>
