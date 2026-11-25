@@ -370,7 +370,6 @@
       .latest-row label{ display:block; font-size:.8rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px; }
       .latest-row select{ font:inherit; font-weight:700; color:var(--ink); background:var(--paper); border:1.5px solid var(--line); border-radius:8px; padding:9px 10px; min-width:220px; }
       .latest-meta{ margin:0 0 10px; font-family:"Newsreader", Georgia, serif; font-size:1.15rem; font-weight:800; }
-      #latest-audio{ width:100%; display:block; margin:0 0 8px; }
       .latest-msg{ margin:0; color:var(--ink-soft); font-size:.9rem; }
       .latest-note{ margin:10px 0 0; font-size:.88rem; color:var(--ink-soft); }
       .latest-note code{ background:var(--chip); border-radius:6px; padding:2px 6px; word-break:break-all; }
@@ -573,10 +572,9 @@
                   <option value="quintana-roo">Quintana Roo</option>
                 </select>
               </div>
-              <button type="button" class="btn btn-red" id="latest-play">▶ Escuchar última emisión</button>               <a class="btn btn-ghost" id="latest-hist" href="#historico">Ver histórico de este estado</a>
+              <a class="btn btn-red" id="latest-play" href="#" target="_blank" rel="noopener noreferrer">▶ Escuchar última emisión</a>               <a class="btn btn-ghost" id="latest-hist" href="#historico">Ver histórico de este estado</a>
             </div>
             <p class="latest-meta" id="latest-meta" aria-live="polite">Cargando la última emisión…</p>
-            <audio id="latest-audio" controls preload="metadata" referrerpolicy="no-referrer"></audio>
             <p class="latest-direct"><a id="latest-direct" href="#" target="_blank" rel="noopener noreferrer">▶ Escuchar el audio (abre el reproductor del teléfono)</a></p>
             <p class="latest-msg" id="latest-msg" role="status"></p>
             <p class="latest-note">Comparte este enlace y siempre sonará la última emisión de ese estado: <code id="latest-share">https://gembasya-dotcom.github.io/?estado=nayarit</code> <button type="button" class="btn btn-ghost" id="latest-copy">Copiar enlace</button> <span id="latest-copy-feedback" aria-live="polite"></span></p>
@@ -8205,7 +8203,7 @@
         if (cards.length) applyHist();
 
         /* Última emisión por estado: ?estado=<slug> */
-        var latestAudio = document.getElementById('latest-audio'),
+        var latestPlay = document.getElementById('latest-play'),
             latestMeta = document.getElementById('latest-meta'),
             latestMsg = document.getElementById('latest-msg'),
             latestSel = document.getElementById('latest-estado'),
@@ -8251,7 +8249,7 @@
           if (latestShare) latestShare.textContent = latestUrl(estado);
           if (!card){
             if (latestMeta) latestMeta.textContent = 'Aún no hay emisión con audio para este estado.';
-            if (latestAudio) latestAudio.removeAttribute('src');
+            if (latestPlay) latestPlay.removeAttribute('href');
             if (latestDirect) latestDirect.removeAttribute('href');
             return;
           }
@@ -8259,7 +8257,7 @@
               est = card.getAttribute('data-estado'),
               nombre = est === 'todos' ? 'Todos los estados' : (STATE_NAMES[est] || est);
           if (latestMeta) latestMeta.textContent = nombre + ' · ' + fmtFechaLarga(card.getAttribute('data-date')) + ' · ' + (ED_HOURS[ed] || '') + ' — ' + (ED_NAMES[ed] || ed);
-          if (latestAudio){ latestAudio.src = card.getAttribute('data-audio'); latestAudio.load(); }
+          if (latestPlay) latestPlay.href = card.getAttribute('data-audio');
           if (latestDirect) latestDirect.href = card.getAttribute('data-audio');
           if (latestMsg) latestMsg.textContent = '';
         }
@@ -8278,19 +8276,6 @@
           if (latestMsg) latestMsg.textContent = '';
           showLatest(v);
         });
-        var latestPlay = document.getElementById('latest-play');
-        var PLAY_LABEL = '▶ Escuchar última emisión', PAUSE_LABEL = '⏸ Pausar';
-        if (latestPlay) latestPlay.addEventListener('click', function(){
-          if (latestAudio && !latestAudio.paused){ latestAudio.pause(); latestPlay.textContent = PLAY_LABEL; return; }
-          if (latestAudio && latestAudio.getAttribute('src')){
-            var pr = latestAudio.play();
-            if (pr && pr.catch) pr.catch(function(){});
-            latestPlay.textContent = PAUSE_LABEL;
-          }
-        });
-        if (latestAudio) latestAudio.addEventListener('ended', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
-        if (latestAudio) latestAudio.addEventListener('error', function(){ if (latestMsg) latestMsg.textContent = 'El reproductor no pudo cargar el audio. Toca “Escuchar el audio” para abrirlo en el reproductor del teléfono.'; if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
-        if (latestSel) latestSel.addEventListener('change', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
         if (latestHist) latestHist.addEventListener('click', function(ev){
           ev.preventDefault();
           var v = (latestSel && latestSel.value) || '';
