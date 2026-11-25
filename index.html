@@ -577,6 +577,7 @@
             </div>
             <p class="latest-meta" id="latest-meta" aria-live="polite">Cargando la última emisión…</p>
             <audio id="latest-audio" controls preload="metadata"></audio>
+            <p class="latest-direct"><a id="latest-direct" href="#" target="_blank" rel="noopener noreferrer">▶ Escuchar el audio (abre el reproductor del teléfono)</a></p>
             <p class="latest-msg" id="latest-msg" role="status"></p>
             <p class="latest-note">Comparte este enlace y siempre sonará la última emisión de ese estado: <code id="latest-share">https://gembasya-dotcom.github.io/?estado=nayarit</code> <button type="button" class="btn btn-ghost" id="latest-copy">Copiar enlace</button> <span id="latest-copy-feedback" aria-live="polite"></span></p>
           </div>
@@ -7475,6 +7476,7 @@
             latestHist = document.getElementById('latest-hist'),
             latestShare = document.getElementById('latest-share'),
             latestCopy = document.getElementById('latest-copy'),
+            latestDirect = document.getElementById('latest-direct'),
             latestCopyFb = document.getElementById('latest-copy-feedback');
         var ED_NAMES = { manana:'Como amanecemos con Nena', tarde:'Como vamos con Nena', noche:'Cierre nocturno con Nena' };
         var ED_HOURS = { manana:'6:11 am', tarde:'2:11 pm', noche:'11:11 pm' };
@@ -7514,6 +7516,7 @@
           if (!card){
             if (latestMeta) latestMeta.textContent = 'Aún no hay emisión con audio para este estado.';
             if (latestAudio) latestAudio.removeAttribute('src');
+            if (latestDirect) latestDirect.removeAttribute('href');
             return;
           }
           var ed = card.getAttribute('data-edition'),
@@ -7521,6 +7524,7 @@
               nombre = est === 'todos' ? 'Todos los estados' : (STATE_NAMES[est] || est);
           if (latestMeta) latestMeta.textContent = nombre + ' · ' + fmtFechaLarga(card.getAttribute('data-date')) + ' · ' + (ED_HOURS[ed] || '') + ' — ' + (ED_NAMES[ed] || ed);
           if (latestAudio){ latestAudio.src = card.getAttribute('data-audio'); latestAudio.load(); }
+          if (latestDirect) latestDirect.href = card.getAttribute('data-audio');
           if (latestMsg) latestMsg.textContent = '';
         }
         var urlParams = new URLSearchParams(window.location.search);
@@ -7541,9 +7545,7 @@
         var latestPlay = document.getElementById('latest-play');
         var PLAY_LABEL = '▶ Escuchar última emisión', PAUSE_LABEL = '⏸ Pausar';
         if (latestPlay) latestPlay.addEventListener('click', function(){
-          var v = (latestSel && latestSel.value) || null;
           if (latestAudio && !latestAudio.paused){ latestAudio.pause(); latestPlay.textContent = PLAY_LABEL; return; }
-          showLatest(v);
           if (latestAudio && latestAudio.getAttribute('src')){
             var pr = latestAudio.play();
             if (pr && pr.catch) pr.catch(function(){});
@@ -7551,6 +7553,7 @@
           }
         });
         if (latestAudio) latestAudio.addEventListener('ended', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
+        if (latestAudio) latestAudio.addEventListener('error', function(){ if (latestMsg) latestMsg.textContent = 'El reproductor no pudo cargar el audio. Toca “Escuchar el audio” para abrirlo en el reproductor del teléfono.'; if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
         if (latestSel) latestSel.addEventListener('change', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
         if (latestHist) latestHist.addEventListener('click', function(ev){
           ev.preventDefault();
