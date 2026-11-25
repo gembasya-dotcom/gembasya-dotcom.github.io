@@ -4,19 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día." />
+    <meta name="description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día, una por cada uno de los 32 estados." />
     <link rel="icon" href="data:," />
     <title>Agencia moszar — Noticias con Nena</title>
     <link rel="canonical" href="https://gembasya-dotcom.github.io/" />
     <meta property="og:title" content="Noticias con Nena — Agencia moszar" />
-    <meta property="og:description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día." />
+    <meta property="og:description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día, una por cada uno de los 32 estados." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gembasya-dotcom.github.io/" />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="Agencia moszar" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Noticias con Nena — Agencia moszar" />
-    <meta name="twitter:description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día." />
+    <meta name="twitter:description" content="Agencia moszar — agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día, una por cada uno de los 32 estados." />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -25,7 +25,7 @@
           "@type": "NewsMediaOrganization",
           "name": "Agencia moszar",
           "url": "https://gembasya-dotcom.github.io/",
-          "description": "Agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día.",
+          "description": "Agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas. Noticias con Nena, tres ediciones al día, una por cada uno de los 32 estados.",
           "foundingDate": "2026-11-20",
           "address": {
             "@type": "PostalAddress",
@@ -507,7 +507,7 @@
         <div class="hero">
           <div class="hero-grid">
             <div class="hero-copy">
-              <p class="over">Agencia informativa · Tepic, Nayarit, México</p>
+              <p class="over">Cobertura nacional · Los 32 estados de México</p>
               <h1>Noticias con Nena, tres veces al día</h1>
               <p class="lede">Agencia informativa internacional desde Tepic, Nayarit, México. Periodismo neutral, datos verificados y fuentes citadas: lo más importante de los 32 estados, de México y del mundo.</p>
               <div class="cta-row">
@@ -524,20 +524,7 @@
             </figure>
           </div>
 
-          <div class="band" role="region" aria-label="Relanzamiento">
-            <div>
-              <h2>Relanzamiento: viernes 20 de noviembre de 2026</h2>
-              <p>Noticias con Nena regresa con tres ediciones diarias, cada una con su propio formato: programa amplio en la mañana, podcast breve a mediodía y flash informativo en la noche.</p>
-            </div>
-            <div class="count">
-              <div class="nums" id="countdown" aria-live="off">
-                <div class="cell"><div class="n" id="cd-d">–</div><div class="l">Días</div></div>
-                <div class="cell"><div class="n" id="cd-h">–</div><div class="l">Horas</div></div>
-                <div class="cell"><div class="n" id="cd-m">–</div><div class="l">Min</div></div>
-                <div class="cell"><div class="n" id="cd-s">–</div><div class="l">Seg</div></div>
-              </div>
-              <p class="when">Primera edición: 6:11 am · «Como amanecemos con Nena»</p>
-            </div>
+          
           </div>
         </div>
 
@@ -586,7 +573,7 @@
                   <option value="quintana-roo">Quintana Roo</option>
                 </select>
               </div>
-              <a class="btn btn-ghost" id="latest-hist" href="#historico">Ver histórico de este estado</a>
+              <button type="button" class="btn btn-red" id="latest-play">▶ Escuchar última emisión</button>               <a class="btn btn-ghost" id="latest-hist" href="#historico">Ver histórico de este estado</a>
             </div>
             <p class="latest-meta" id="latest-meta" aria-live="polite">Cargando la última emisión…</p>
             <audio id="latest-audio" controls preload="metadata"></audio>
@@ -6642,26 +6629,7 @@
         var ad = document.getElementById('app-date');
         if (ad) ad.textContent = fmtDay.format(now) + ' · hora de Tepic';
 
-        /* Countdown to relaunch: Fri 20 Nov 2026, 6:11 am Tepic (UTC-7) */
-        var target = new Date('2026-11-20T06:11:00-07:00').getTime();
-        var dEl=document.getElementById('cd-d'), hEl=document.getElementById('cd-h'),
-            mEl=document.getElementById('cd-m'), sEl=document.getElementById('cd-s');
         function pad(n){ return (n<10?'0':'')+n; }
-        function tick(){
-          var diff = target - Date.now();
-          if (diff <= 0){
-            if(dEl){ dEl.textContent='0'; hEl.textContent='00'; mEl.textContent='00'; sEl.textContent='00'; }
-            var when = document.querySelector('.count .when');
-            if (when) when.textContent = '¡Ya estamos al aire! Escucha la edición de hoy.';
-            return;
-          }
-          var d = Math.floor(diff/86400000),
-              h = Math.floor(diff%86400000/3600000),
-              m = Math.floor(diff%3600000/60000),
-              s = Math.floor(diff%60000/1000);
-          if(dEl){ dEl.textContent=d; hEl.textContent=pad(h); mEl.textContent=pad(m); sEl.textContent=pad(s); }
-        }
-        tick(); setInterval(tick, 1000);
 
         /* Next edition in the app (Tepic time) */
         var eds = [
@@ -6860,6 +6828,20 @@
           if (latestMsg) latestMsg.textContent = '';
           showLatest(v);
         });
+        var latestPlay = document.getElementById('latest-play');
+        var PLAY_LABEL = '▶ Escuchar última emisión', PAUSE_LABEL = '⏸ Pausar';
+        if (latestPlay) latestPlay.addEventListener('click', function(){
+          var v = (latestSel && latestSel.value) || null;
+          if (latestAudio && !latestAudio.paused){ latestAudio.pause(); latestPlay.textContent = PLAY_LABEL; return; }
+          showLatest(v);
+          if (latestAudio && latestAudio.getAttribute('src')){
+            var pr = latestAudio.play();
+            if (pr && pr.catch) pr.catch(function(){});
+            latestPlay.textContent = PAUSE_LABEL;
+          }
+        });
+        if (latestAudio) latestAudio.addEventListener('ended', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
+        if (latestSel) latestSel.addEventListener('change', function(){ if (latestPlay) latestPlay.textContent = PLAY_LABEL; });
         if (latestHist) latestHist.addEventListener('click', function(ev){
           ev.preventDefault();
           var v = (latestSel && latestSel.value) || '';
