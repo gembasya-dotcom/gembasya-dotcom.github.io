@@ -475,7 +475,7 @@
         .editions, .segments{ grid-template-columns:1fr; }
         .inside{ grid-template-columns:1fr; }
         .count{ text-align:left; } .count .nums{ justify-content:flex-start; }
-        .dateline{ display:none; }
+        .dateline{ font-size:.7rem; }
         .topnav a{ padding:8px 6px; }
       }
     </style>
@@ -8331,11 +8331,21 @@
       (function(){
         var TZ = 'America/Mazatlan';
         var fmtDay = new Intl.DateTimeFormat('es-MX', { timeZone: TZ, weekday:'long', day:'numeric', month:'long', year:'numeric' });
-        var now = new Date();
-        var dl = document.getElementById('dateline');
-        if (dl) dl.textContent = 'Tepic, Nayarit · ' + fmtDay.format(now);
-        var ad = document.getElementById('app-date');
-        if (ad) ad.textContent = fmtDay.format(now) + ' · hora de Tepic';
+        function fmtClock(d){
+          var p = new Intl.DateTimeFormat('en-US', { timeZone: TZ, hour:'numeric', minute:'2-digit', hour12:false }).formatToParts(d);
+          var hh = 0, mm = '00';
+          p.forEach(function(x){ if (x.type === 'hour') hh = parseInt(x.value, 10) % 24; if (x.type === 'minute') mm = x.value; });
+          var h12 = ((hh + 11) % 12) + 1, ap = hh < 12 ? 'am' : 'pm';
+          return h12 + ':' + mm + ' ' + ap;
+        }
+        function tickClock(){
+          var now = new Date();
+          var dl = document.getElementById('dateline');
+          if (dl) dl.textContent = 'Tepic, Nayarit · ' + fmtDay.format(now) + ' · ' + fmtClock(now);
+          var ad = document.getElementById('app-date');
+          if (ad) ad.textContent = fmtDay.format(now) + ' · ' + fmtClock(now) + ' · hora de Tepic';
+        }
+        tickClock(); setInterval(tickClock, 1000);
 
         function pad(n){ return (n<10?'0':'')+n; }
 
